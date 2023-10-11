@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Primera Aplicacion</string>
+
+    <string name="textview_title_text">Ciclo de Vida de una Actividad</string>
+
+    <string name="edittext_numberone_text">Ingrese un numero</string>
+    <string name="edittext_numbertwo_text">Ingrese otro numero</string>
+    <string name="textview_result_text">0</string>
+
+    <string name="button_add_text">Sumar</string>
+    <string name="button_subtract_text">Restar</string>
+    <string name="button_multiply_text">Multiplicar</string>
+    <string name="button_divide_text">Dividir</string>
+
+    <string name="button_pow_text">Potencia</string>
+    <string name="button_factorial_text">Factorial</string>
+
+    <string name="button_show_second_activity_text">Mostrar Segunda Actividad</string>
+    <string name="button_show_third_activity">Mostrar tercer activity</string>
+</resources>
