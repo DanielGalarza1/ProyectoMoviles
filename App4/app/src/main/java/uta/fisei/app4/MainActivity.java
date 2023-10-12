@@ -1,5 +1,6 @@
 package uta.fisei.app4;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewSecondForm;
     private TextView textViewThirdForm;
     private TextView textViewFourForm;
+
+    private int code = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         String parameterResult = bundle.getString("result");
         String parameterFirstNumber = bundle.getString("firstParameter");
         String parameterSecondNumber = bundle.getString("secondParameter");
+
+        textViewMessage.setText(parameterResult);
+        /*
         //Firts Form
         textViewMessage.setText(parameterFirstNumber+" + "+parameterSecondNumber+" = "+parameterResult);
 
@@ -59,11 +65,21 @@ public class MainActivity extends AppCompatActivity {
         //Four Form
         int addClass = Mathematic.AddForClass(firstNumber, secondNumber);
 
-        textViewFourForm.setText(parameterFirstNumber + " + " + parameterSecondNumber + " = " + addClass);
+        textViewFourForm.setText(parameterFirstNumber + " + " + parameterSecondNumber + " = " + addClass);*/
     }
 
     public void OnClickShowThirdActivity(View view){
         Intent intent = new Intent(this, ThirdActivity.class);
-        startActivity(intent);
+        //startActivity(intent);
+        startActivityForResult(intent, code);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ((requestCode == code)&&(resultCode == RESULT_OK)){
+            textViewMessage.setText("Valor Seleccionado: "+data.getDataString());
+        }
     }
 }
