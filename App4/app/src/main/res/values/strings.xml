@@ -19,6 +19,7 @@
     <string name="button_show_third_activity">Mostrar tercer activity</string>
 
     <string name="textview_list_text">Lista de valores</string>
+    <string name="Confirm">Confirmar</string>
 
 
 </resources>

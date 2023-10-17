@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import uta.fisei.app4.logic.Mathematic;
 
 public class MainActivity extends AppCompatActivity {
@@ -78,8 +80,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if ((requestCode == code)&&(resultCode == RESULT_OK)){
-            textViewMessage.setText("Valor Seleccionado: "+data.getDataString());
+        if (resultCode == RESULT_OK) {
+            ArrayList<String> selectedItems = data.getStringArrayListExtra("selectedItems");
+
+            if (selectedItems != null && !selectedItems.isEmpty()) {
+                StringBuilder selectedItemsText = new StringBuilder();
+                for (String item : selectedItems) {
+                    selectedItemsText.append(item).append("\n");
+                }
+                textViewMessage.setText("Valores Seleccionados:\n" + selectedItemsText.toString());
+            } else {
+                textViewMessage.setText("No se seleccionaron elementos.");
+            }
         }
     }
+
 }

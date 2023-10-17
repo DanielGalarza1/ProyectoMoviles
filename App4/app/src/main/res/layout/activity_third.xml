@@ -16,6 +16,12 @@
         android:textStyle="bold"
         />
 
+    <Button
+        android:id="@+id/confirmButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Confirm" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

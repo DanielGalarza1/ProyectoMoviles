@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TipCalculator" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">#FF2196F3</item> <!-- Cambia a un color verde -->
+        <item name="colorPrimaryDark">#FF303F9F</item> <!-- Cambia a un verde más oscuro -->
+        <item name="colorAccent">#FFFF9100</item> <!-- Cambia a un color naranja -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.TipCalculator" parent="Base.Theme.TipCalculator" />
+</resources>
