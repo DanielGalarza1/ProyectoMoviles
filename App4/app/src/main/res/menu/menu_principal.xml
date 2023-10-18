@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menuFile" android:title="@string/menu_file"/>
+    <item android:id="@+id/menuFileAbout" android:title="@string/menu_about"/>
+    <item android:id="@+id/menuFileFinish" android:title="@string/menu_finish"/>
+
+    <item android:id="@+id/menuFileShowBrowser" android:title="@string/menu_show_browser"/>
+    <item android:id="@+id/menuFileCallPhone" android:title="@string/menu_show_call_phone"/>
+</menu>

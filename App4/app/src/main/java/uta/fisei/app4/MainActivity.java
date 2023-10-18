@@ -1,10 +1,16 @@
 package uta.fisei.app4;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -19,6 +25,18 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewThirdForm;
     private TextView textViewFourForm;
 
+    //Forma ing de mandar los valores
+    ActivityResultLauncher<Intent> resultLuncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK){
+                        //obtener los datos regresados
+                        Intent data = result.getData();
+                        textViewMessage.setText(data.getDataString());
+                    }
+                }
+            });
     private int code = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +91,22 @@ public class MainActivity extends AppCompatActivity {
     public void OnClickShowThirdActivity(View view){
         Intent intent = new Intent(this, ThirdActivity.class);
         //startActivity(intent);
-        startActivityForResult(intent, code);
+        //startActivityForResult(intent, code);
+        resultLuncher.launch(intent);
     }
 
-    @Override
+    //Forma ing
+    /*
+      @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ((requestCode == code)&&(resultCode == RESULT_OK)){
+            textViewMessage.setText("Valor Seleccionado: "+data.getDataString());
+            }
+    * */
+    //Forma mia de enviar arrays
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -93,6 +123,12 @@ public class MainActivity extends AppCompatActivity {
                 textViewMessage.setText("No se seleccionaron elementos.");
             }
         }
-    }
+    }*/
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_secondary, menu);
+        return true;
+        //return super.onCreateOptionsMenu(menu);
+    }
 }

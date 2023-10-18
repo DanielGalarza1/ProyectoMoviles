@@ -20,6 +20,15 @@
 
     <string name="textview_list_text">Lista de valores</string>
     <string name="Confirm">Confirmar</string>
+    <string name="button_browser_text">Mostrar Navegador</string>
+    <string name="button_call_phone_text">Realizar Llamada</string>
+    <string name="button_show_main_activity_text">Mostrar Activity</string>
+    <string name="button_navegation_text">Mostrar Ubicacion</string>
+    <string name="menu_file">Archivo</string>
+    <string name="menu_about">Acerca De</string>
+    <string name="menu_finish">Cerrar</string>
+    <string name="menu_show_browser">Mostar Navegador</string>
+    <string name="menu_show_call_phone">Realizar Llamadas</string>
 
 
 </resources>
