@@ -1,13 +1,17 @@
 package uta.fisei.app4;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import uta.fisei.app4.R;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -48,8 +52,28 @@ public class FirstActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_principal, menu);
+        getMenuInflater().inflate(R.menu.menu_principal,menu);
         return true;
         //return super.onCreateOptionsMenu(menu);
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menuFileAbout){
+            Toast.makeText(this, "Esta es una app de prueba", Toast.LENGTH_SHORT).show();
+            return true;
+
+
+        /*switch (id) {
+            case R.id.menuFileAbout:
+                Toast.makeText(this, "Esta es una app de prueba", Toast.LENGTH_SHORT).show();
+                return true; // Devuelve true para indicar que la opción ha sido manejada.*/
+        }
+
+        // Si el elemento del menú no coincide con ningún caso, llama al método de la superclase.
+        return super.onOptionsItemSelected(item);
+    }
+
 }

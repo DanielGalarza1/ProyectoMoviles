@@ -1,9 +1,11 @@
 package uta.fisei.tipcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.Menu;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.text.TextWatcher;
@@ -12,6 +14,12 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
 
     private static final NumberFormat currencyFormat =
             NumberFormat.getCurrencyInstance();
@@ -25,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView tipTextView; // shows calculated tip amountprivate TextView totalTextView; // shows calculated total bill amount
     private TextView totalTextView; // shows calculated total bill amount
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         // get references to programmatically manipulated TextViews
         amountTextView = (TextView) findViewById(R.id.amountTextView);

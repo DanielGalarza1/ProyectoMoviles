@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flag Quiz</string>
+    <string name="number_of_choices">Número de opciones</string>
+    <string name="number_of_choices_description">Mostrar 2, 4, 6 u 8 botones de adivinar</string>
+    <string name="world_regions">Regiones</string>
+    <string name="world_regions_description">Regiones para incluir en el cuestionario</string>
+    <string name="guess_country">Adivina el País</string>
+    <string name="results">%1$d adivina, %2$.02f%% correcto</string>
+    <string name="incorrect_answer">¡Incorrecto!</string>
+    <string name="default_region_message">Debe seleccionarse una región. Establecer Norteamérica como región por defecto.</string>
+    <string name="restarting_quiz">El cuestionario se reiniciará con la nueva configuración</string>
+    <string name="question">Pregunta %1$d de %2$d</string>
+    <string name="reset_quiz">Reiniciar Cuestionario</string>
+    <string name="image_description">Imagen de la bandera actual en el concurso</string>
+    <string name="default_region">Norte_América</string>
+    <string name="title_activity_settings">Ajustes</string>
+    <string name="action_settings">Ajustes</string>
+</resources>

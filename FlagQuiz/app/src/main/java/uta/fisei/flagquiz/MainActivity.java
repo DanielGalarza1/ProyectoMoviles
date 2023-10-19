@@ -1,151 +1,116 @@
 package uta.fisei.flagquiz;
 
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.preference.PreferenceManager;
-
-
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import java.util.Set;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    // Claves para leer datos de SharedPreferences
     public static final String CHOICES = "pref_numberOfChoices";
     public static final String REGIONS = "pref_regionsToInclude";
+    private boolean deviceIsPhone = true;
+    private boolean preferencesChanged = true;
+    private MainActivityFragment quizFragment;
+    private QuizViewModel quizViewModel;
+    private SharedPreferences.OnSharedPreferenceChangeListener preferencesChangeListener;
 
-    private boolean phoneDevice = true; // Usado para forzar el modo vertical (portrait)
-    private boolean preferencesChanged = true; // ¿Cambiaron las preferencias?
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        // set default values in the app's SharedPreferences
+    private void setSharedPreferences() {
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-        // register listener for SharedPreferences changes
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        sharedPreferences.registerOnSharedPreferenceChangeListener(preferencesChangeListener);
 
-        // determine screen size
-        int screenSize = getResources().getConfiguration().screenLayout &
-                Configuration.SCREENLAYOUT_SIZE_MASK;
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .registerOnSharedPreferenceChangeListener(preferencesChangeListener);
+    }
 
-        // if device is a tablet, set phoneDevice to false
-        if (screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE ||
-                screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
-            phoneDevice = false; // Not a phone-sized device
+    private void screenSetUp() {
+        if (getScreenSize() == Configuration.SCREENLAYOUT_SIZE_LARGE ||
+                getScreenSize() == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
+            deviceIsPhone = false;
         }
-
-        // If running on a phone-sized device, allow only portrait orientation
-        if (phoneDevice) {
+        if (deviceIsPhone) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (preferencesChanged){
-            // now that the default preferences have been set,
-            // initialize MainActivityFragment and start the quiz
-            MainActivityFragment quizFragment = (MainActivityFragment)
-                    getSupportFragmentManager().findFragmentById(R.id.quizFragment);
-
-            if (quizFragment != null) {
-                quizFragment.updateGuessRows(PreferenceManager.getDefaultSharedPreferences(this));
-                quizFragment.updateRegions(PreferenceManager.getDefaultSharedPreferences(this));
-                quizFragment.resetQuiz();
-                preferencesChanged = false;
-            } else {
-                // Handle the case when quizFragment is null (e.g., if it's not found in the layout)
-            }
-        }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.quizViewModel = new ViewModelProvider(this).get(QuizViewModel.class);        this.preferencesChangeListener = new PreferenceChangeListener(this);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        this.setSharedPreferences();
+        this.screenSetUp();
     }
 
-    // show menu if app is running on a phone or a portrait-oriented tablet
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (preferencesChanged) {
+            this.quizFragment = (MainActivityFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.quizFragment);
+            this.quizViewModel.setGuessRows(PreferenceManager.getDefaultSharedPreferences(this)
+                    .getString(CHOICES, null));
+            this.quizViewModel.setRegionsSet(PreferenceManager.getDefaultSharedPreferences(this)
+                    .getStringSet(REGIONS, null));
+
+            this.quizFragment.resetQuiz();
+
+            preferencesChanged = false;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // get the device's current orientation
         int orientation = getResources().getConfiguration().orientation;
-
-        // display the app's menu only in portrait orientation
-        if (orientation == Configuration.ORIENTATION_PORTRAIT){
-            // inflate the menu
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            // Inflate the menu; this adds items to the action bar if it is present.
             getMenuInflater().inflate(R.menu.menu_main, menu);
             return true;
-        }
-        else
+        } else {
             return false;
+        }
     }
 
-    // displays the SettingsActivity when running on a phone
-
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         Intent preferencesIntent = new Intent(this, SettingsActivity.class);
         startActivity(preferencesIntent);
         return super.onOptionsItemSelected(item);
     }
 
-    // listener for changes to the app's SharedPreferences
-    private SharedPreferences.OnSharedPreferenceChangeListener preferencesChangeListener =
-            new SharedPreferences.OnSharedPreferenceChangeListener() {
-                // called when the user changes the app's preferences
-                @Override
-                public void onSharedPreferenceChanged(
-                        SharedPreferences sharedPreferences, String key) {
-                        preferencesChanged = true; // user changed app settings
+    public int getScreenSize() {
+        return getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK;
+    }
 
-                    MainActivityFragment quizFragment = (MainActivityFragment)
-                            getSupportFragmentManager().findFragmentById(
-                                    R.id.quizFragment);
-                    if (key.equals(CHOICES)){
-                        quizFragment.updateGuessRows(sharedPreferences);
-                        quizFragment.resetQuiz();
-                    }
-                    else if (key.equals(REGIONS)) { // regions to include changed
-                        Set<String> regions =
-                                sharedPreferences.getStringSet(REGIONS, null);
-                        if (regions != null && regions.size() > 0) {
-                            quizFragment.updateRegions(sharedPreferences);
-                            quizFragment.resetQuiz();
-                        }
-                        else{
-                            // must select one region--set North America as default
-                            SharedPreferences.Editor editor =
-                                    sharedPreferences.edit();
-                            regions.add(getString(R.string.default_region));
-                            editor.putStringSet(REGIONS, regions);
-                            editor.apply();
+    public MainActivityFragment getQuizFragment() {
+        return this.quizFragment;
+    }
 
-                            Toast.makeText(MainActivity.this,
-                                    R.string.default_region_message,
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                    Toast.makeText(MainActivity.this,
-                            R.string.restarting_quiz,
-                            Toast.LENGTH_SHORT).show();
-                }
-    };
+    public QuizViewModel getQuizViewModel() {
+        return quizViewModel;
+    }
+
+    public static String getCHOICES() {
+        return CHOICES;
+    }
+
+    public static String getREGIONS() {
+        return REGIONS;
+    }
+
+    public void setPreferencesChanged(boolean preferencesChanged) {
+        this.preferencesChanged = preferencesChanged;
+    }
 }
