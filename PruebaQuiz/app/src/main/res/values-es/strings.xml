@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Flag Quiz</string>
+    <string name="app_name">Encuesta con Banderas</string>
     <string name="number_of_choices">Número de opciones</string>
     <string name="number_of_choices_description">Mostrar 2, 4, 6 u 8 botones de adivinar</string>
     <string name="world_regions">Regiones</string>

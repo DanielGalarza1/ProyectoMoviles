@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">RepasoParaPrueba</string>
+    <string name="button_Navegador_text">Mostrar Navegador</string>
+    <string name="button_call_text">Realizar Llamada</string>
+    <string name="button_see_activity_text">Mostar Activity</string>
+    <string name="button_ubication_text">Mostrar Ubicacion</string>
+    <string name="button_show_third_activity">Mostrar Actividad con Lista</string>
+    <string name="cycle_life_title_text">CICLO DE VIDA ACTIVITY</string>
+    <string name="button_add_text">SUMAR</string>
+    <string name="button_subtract_text">RESTAR</string>
+    <string name="button_divide_text">DIVIDIR</string>
+    <string name="button_pow_text">POTENCIA</string>
+    <string name="button_factorial_text">FACTORIAL</string>
+    <string name="button_show_activity_second_text">MOSTRAR SEGUNDA ACTIVITY</string>
+    <string name="first_number_hind">Ingrese Un Numero</string>
+    <string name="other_number_hind">Ingrese Otro Numero</string>
+    <string name="default_result_text">0</string>
+    <string name="textview_list_text">Lista de Valores</string>
+    <string name="confirm_text">Confirmar</string>
+    <string name="buttont_show_ok_text">Correcto</string>
+</resources>

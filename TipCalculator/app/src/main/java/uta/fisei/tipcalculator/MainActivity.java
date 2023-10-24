@@ -41,20 +41,20 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // get references to programmatically manipulated TextViews
-        amountTextView = (TextView) findViewById(R.id.amountTextView);
-        percentTextView = (TextView) findViewById(R.id.percentTextView);
-        tipTextView = (TextView) findViewById(R.id.tipTextView);
-        totalTextView = (TextView) findViewById(R.id.totalTextView);
+        amountTextView = findViewById(R.id.amountTextView);
+        percentTextView = findViewById(R.id.percentTextView);
+        tipTextView = findViewById(R.id.tipTextView);
+        totalTextView = findViewById(R.id.totalTextView);
         tipTextView.setText(currencyFormat.format(0)); // set text to 0
         totalTextView.setText(currencyFormat.format(0)); // set text to 0
 
         // set amountEditText's TextWatcher
         EditText amountEditText =
-                (EditText) findViewById(R.id.amountEditText);
+                findViewById(R.id.amountEditText);
         amountEditText.addTextChangedListener(amountEditTextWatcher);
 
         SeekBar percentSeekBar =
-                (SeekBar) findViewById(R.id.percentSeekBar);
+                findViewById(R.id.percentSeekBar);
         percentSeekBar.setOnSeekBarChangeListener(seekBarListener);
     }
 

@@ -1,4 +1,4 @@
-package uta.fisei.app4;
+package uta.fisei.repasoparaprueba;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import uta.fisei.app4.logic.Mathematic;
+import uta.fisei.repasoparaprueba.Logic.Mathemathics;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -21,15 +21,14 @@ public class SecondActivity extends AppCompatActivity {
     private Button buttonAdd;
 
     private static final String NAME_ACTIVITY = SecondActivity.class.getSimpleName();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
         //referencias de las vistas controles
-        editTextNumberOne = findViewById(R.id.editTextNumberOne);
-        editTextNumberTwo = findViewById(R.id.editTextNumberTwo);
+        editTextNumberOne = findViewById(R.id.editTextOne);
+        editTextNumberTwo = findViewById(R.id.editTextTwo);
         textViewResult = findViewById(R.id.textViewResult);
         buttonAdd = findViewById(R.id.buttonAdd);
 
@@ -45,13 +44,11 @@ public class SecondActivity extends AppCompatActivity {
 
                 String result = String.valueOf(add);
                 textViewResult.setText(result);
-
             }
         });
 
         Log.d(NAME_ACTIVITY, "Se ejecuto: onCreate()");
         Toast.makeText(this, NAME_ACTIVITY + "" + "Se ejecuto: onCreate()", Toast.LENGTH_SHORT).show();
-
     }
 
     public void onClickAdd(View view){
@@ -109,7 +106,7 @@ public class SecondActivity extends AppCompatActivity {
         int a = Integer.parseInt(numberOne);
         int b = Integer.parseInt(numberTwo);
 
-        Mathematic mathematic = new Mathematic();
+        Mathemathics mathematic = new Mathemathics();
 
         long powResult = mathematic.pow(a,b);
 
@@ -124,20 +121,21 @@ public class SecondActivity extends AppCompatActivity {
         //int a = Integer.parseInt(numberOne);
         int b = Integer.parseInt(numberTwo);
 
-        long factorialResult = Mathematic.factorial(b);
+        long factorialResult = Mathemathics.factorial(b);
 
         String result = String.valueOf(factorialResult);
         textViewResult.setText(result);
     }
 
     public void onClickShowSecondActivity(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, FirtsActivity.class);
         intent.putExtra("firstParameter", editTextNumberOne.getText().toString());
         intent.putExtra("secondParameter", editTextNumberTwo.getText().toString());
         intent.putExtra("result", textViewResult.getText().toString());
 
         startActivity(intent);
     }
+
     //evento de una actividad
 
     @Override
@@ -187,4 +185,5 @@ public class SecondActivity extends AppCompatActivity {
         Log.d(NAME_ACTIVITY, "Se ejecuto: onDestroy()");
         Toast.makeText(this, NAME_ACTIVITY + "" + "Se ejecuto: onDestroy()", Toast.LENGTH_SHORT).show();
     }
+
 }
