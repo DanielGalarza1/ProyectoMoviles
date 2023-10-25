@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">daniel_galarza_prueba01</string>
+    <string name="nombre_hint">Nombres</string>
+    <string name="lastname_hind">Apellidos</string>
+    <string name="dividendo_hind">Dividendo</string>
+    <string name="divisor_hind">Divisor</string>
+    <string name="entera_hind">Parte Entera</string>
+    <string name="residuo_hind">Residuo</string>
+    <string name="invertido_hind">Numero Invertido</string>
+    <string name="button_next_text">Siguiente</string>
+    <string name="button_close">Cerrar</string>
+    <string name="numero_hind">Numero</string>
+    <string name="button_show_answer_text">Mostrar Resultados</string>
+</resources>

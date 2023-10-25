@@ -46,7 +46,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     public void onClickShowMainActivity(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
     }
 
