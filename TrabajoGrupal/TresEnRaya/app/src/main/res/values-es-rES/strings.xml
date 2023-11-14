@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name">Tres en Raya</string>
+
+    <string name="un_jugador">1 jugador</string>
+    <string name="dos_jugadores">2 jugadores</string>
+
+    <string name="facil">Fácil</string>
+    <string name="normal">Normal</string>
+    <string name="imposible">Imposible</string>
+
+    <string name="gana_jugador2">HA GANADO EL JUGADOR 2!</string>
+    <string name="gana_jugador1">HA GANADO EL JUGADOR 1!</string>
+    <string name="empate">EMPATE!</string>
+
+</resources>

@@ -2,15 +2,7 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:ignore="ExtraText">
-    <item android:id="@+id/menuContextualEdit"
-        android:title="@string/menu_edit">
-        <menu>
-            <group android:id="@+id/menuGroupEdit">
-                <item android:id="@+id/menuEditCopy" android:title="@string/menu_edit_copy"
-                    android:icon="@android:drawable/ic_menu_add"/>
-                <item android:id="@+id/menuEditCut" android:title="@string/menu_edit_cut"/>
-                <item android:id="@+id/menuEditPaste" android:title="@string/menu_edit_paste"/>
-            </group>
-        </menu>
-    </item>>
+    <item android:id="@+id/menuContextualEditCopy" android:title="@string/menu_edit_copy"/>
+    <item android:id="@+id/menuContextualEditCut" android:title="@string/menu_edit_cut"/>
+    <item android:id="@+id/menuContextualEditPaste" android:title="@string/menu_edit_paste"/>
 </menu>

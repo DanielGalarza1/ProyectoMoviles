@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuContextualEditCopy" android:title="@string/menu_edit_copy"/>
+    <item android:id="@+id/menuContextualEditCut" android:title="@string/menu_edit_cut"/>
+    <item android:id="@+id/menuContextualEditPaste" android:title="@string/menu_edit_paste"/>
+</menu>

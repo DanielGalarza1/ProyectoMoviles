@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextImporte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Ingrese el importe (p. ej., 1234.56)"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#8D6E63"
+        tools:ignore="HardcodedText,VisualLintTextFieldSize"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/buttonProteger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proteger Importe"
+        android:layout_below="@+id/editTextImporte"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textViewImporteProtegido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20sp"
+        android:layout_below="@+id/buttonProteger"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+</RelativeLayout>

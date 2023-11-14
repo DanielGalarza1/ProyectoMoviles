@@ -18,4 +18,14 @@
     <string name="textview_list_text">Lista de Valores</string>
     <string name="confirm_text">Confirmar</string>
     <string name="buttont_show_ok_text">Correcto</string>
+    <string name="menu_file">Archivo</string>
+    <string name="menu_edit">Editar</string>
+    <string name="menu_edit_copy">Copiar</string>
+    <string name="menu_edit_cut">Cortar</string>
+    <string name="menu_edit_paste">Pegar</string>
+    <string name="menu_about">Acerca De</string>
+    <string name="menu_finish">Cerrar</string>
+    <string name="menu_show_browser">Mostrar Navegador</string>
+    <string name="menu_show_call_phone">Realizar Llamadas</string>
+    <string name="hint_text_menu_contextual">Ingrese algo</string>
 </resources>

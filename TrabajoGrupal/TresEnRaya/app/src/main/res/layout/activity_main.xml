@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorFondo"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_pantalla"
+        android:weightSum="1"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clipChildren="true"
+            android:clipToPadding="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/titulo"
+                android:text="@string/app_name" />
+
+            <Button
+                android:id="@+id/btn_un_jugador"
+                style="@style/boton"
+                android:text="@string/un_jugador" />
+
+            <RadioGroup
+                android:id="@+id/grupo_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp">
+
+                <RadioButton
+                    android:id="@+id/radio_facil"
+                    style="@style/radio"
+                    android:background="@android:color/transparent"
+                    android:checked="true"
+                    android:text="@string/facil" />
+
+                <RadioButton
+                    android:id="@+id/radio_normal"
+                    style="@style/radio"
+                    android:background="@android:color/transparent"
+                    android:text="@string/normal" />
+
+                <RadioButton
+                    android:id="@+id/radio_imposible"
+                    style="@style/radio"
+                    android:background="@android:color/transparent"
+                    android:text="@string/imposible" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_dos_jugadores"
+                style="@style/boton"
+                android:text="@string/dos_jugadores" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/espacio1"
+            android:layout_width="65dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"></LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="319dp"
+            android:layout_height="316dp">
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/color_fondo"
+                android:columnCount="3"
+                android:rowCount="3">
+
+                <ImageView
+                    android:id="@+id/a1"
+                    style="@style/casilla_a1"
+                    android:src="@drawable/casilla" />
+
+                <ImageView
+                    android:id="@+id/a2"
+                    style="@style/casilla_a2" />
+
+                <ImageView
+                    android:id="@+id/a3"
+                    style="@style/casilla_a3"
+                    android:src="@drawable/casilla" />
+
+                <ImageView
+                    android:id="@+id/b1"
+                    style="@style/casilla_b1" />
+
+                <ImageView
+                    android:id="@+id/b2"
+                    style="@style/casilla_b2" />
+
+                <ImageView
+                    android:id="@+id/b3"
+                    style="@style/casilla_b3" />
+
+                <ImageView
+                    android:id="@+id/c1"
+                    style="@style/casilla_c1"
+                    android:src="@drawable/casilla" />
+
+                <ImageView
+                    android:id="@+id/c2"
+                    style="@style/casilla_c2" />
+
+                <ImageView
+                    android:id="@+id/c3"
+                    style="@style/casilla_c3"
+                    android:src="@drawable/casilla" />
+
+            </GridLayout>
+
+            <ImageView
+                android:id="@+id/tach_3"
+                android:layout_width="101dp"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/tachado" />
+
+            <ImageView
+                android:id="@+id/tach_0"
+                android:layout_width="match_parent"
+                android:layout_height="102dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/tachado_estrecho" />
+
+            <ImageView
+                android:id="@+id/tach_6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/tachado_diagonal" />
+
+            <ImageView
+                android:id="@+id/tach_7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:rotation="90"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/tachado_diagonal" />
+
+            <ImageView
+                android:id="@+id/tach_1"
+                android:layout_width="match_parent"
+                android:layout_height="102dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/tachado_estrecho" />
+
+            <ImageView
+                android:id="@+id/tach_2"
+                android:layout_width="match_parent"
+                android:layout_height="102dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/tachado_estrecho" />
+
+            <ImageView
+                android:id="@+id/tach_4"
+                android:layout_width="102dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/tachado" />
+
+            <ImageView
+                android:id="@+id/tach_5"
+                android:layout_width="101dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="2dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/tachado" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/mensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:alpha="1"
+        android:background="@drawable/rounded_corner"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingTop="3dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="3dp"
+        android:textAlignment="gravity"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@color/colorTitulo"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:visibility="invisible" />
+
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ExtraText">
+    <item android:id="@+id/menuFile" android:title="@string/menu_file"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/submenu_edit"
+        android:title="@string/menu_edit">
+        <menu>
+            <group android:id="@+id/menuGroupEdit">
+                <item android:id="@+id/menuEditCopy" android:title="@string/menu_edit_copy"
+                    android:icon="@android:drawable/ic_menu_add"/>
+                <item android:id="@+id/menuEditCut" android:title="@string/menu_edit_cut"/>
+                <item android:id="@+id/menuEditPaste" android:title="@string/menu_edit_paste"/>
+            </group>
+
+            <!-- Línea divisoria simulada -->
+            <item android:id="@+id/menuDivider" android:title="__________________" android:enabled="false" />
+
+            <group android:id="@+id/menuGroupFind">
+                <item android:id="@+id/menuEditSearch" android:title="@string/menu_edit_copy"
+                    android:icon="@android:drawable/ic_menu_add"/>
+                <item android:id="@+id/menuGroupFin" android:title="@string/menu_edit_cut"/>
+            </group>
+        </menu>
+    </item>
+
+
+
+    <item android:id="@+id/menuFileAbout" android:title="@string/menu_about"/>
+    <item android:id="@+id/menuFileFinish" android:title="@string/menu_finish"/>
+
+    <item android:id="@+id/menuFileShowBrowser" android:title="@string/menu_show_browser"/>
+    <item android:id="@+id/menuFileCallPhone" android:title="@string/menu_show_call_phone"/>
+</menu>

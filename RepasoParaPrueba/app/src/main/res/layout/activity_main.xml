@@ -46,4 +46,13 @@
         android:onClick="onClickButtonGoogleMaps"
         android:text="@string/button_ubication_text"
         tools:ignore="VisualLintButtonSize" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name" />
+
 </LinearLayout>

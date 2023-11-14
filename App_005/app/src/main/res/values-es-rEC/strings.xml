@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App_005</string>
+    <string name="textview_tittle_text">Ingreso al sistema</string>
+    <string name="edittextview_user_hint">Ingrese el usuario</string>
+    <string name="edittextview_password_hint">Ingrese la clave</string>
+    <string name="button_ok_text">Aceptar</string>
+
+    <string name="textview_tittleclients_text">Mantenimiento: Clientes</string>
+    <string name="edittextview_code_hint">Ingrese el codigo</string>
+    <string name="edittextview_name_hint">Ingrese el nombre</string>
+    <string name="edittextview_lastname_hint">Ingrese el apellido</string>
+    <string name="edittextview_phone_hint">Ingrese el telefono</string>
+    <string name="edittextview_balance_hint">Ingrese el saldo</string>
+
+    <string name="button_insert_text">Insertar</string>
+    <string name="button_search_text">Buscar</string>
+    <string name="button_delete_text">Borrar</string>
+    <string name="button_modify_text">Modificar</string>
+
+</resources>

@@ -6,19 +6,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import uta.fisei.app4.R;
 
 public class FirstActivity extends AppCompatActivity {
 
+    private EditText editTextName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+
+        editTextName = findViewById(R.id.editTextName);
+
+        registerForContextMenu(editTextName);
     }
     public void onClickButtonBrowser(View view){
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
@@ -57,23 +65,41 @@ public class FirstActivity extends AppCompatActivity {
         //return super.onCreateOptionsMenu(menu);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.menuFileAbout){
-            Toast.makeText(this, "Esta es una app de prueba", Toast.LENGTH_SHORT).show();
+        /*if (id == R.id.menuFileAbout) {
+            Toast.makeText(this, "Bienvenido a la App", Toast.LENGTH_SHORT).show();
             return true;
+        }*/
+        switch (id) {
+            case R.id.menuEditPaste:
+                Toast.makeText(this, "Presiono en la opcion a la App", Toast.LENGTH_SHORT).show();
 
-
-        /*switch (id) {
             case R.id.menuFileAbout:
                 Toast.makeText(this, "Esta es una app de prueba", Toast.LENGTH_SHORT).show();
-                return true; // Devuelve true para indicar que la opción ha sido manejada.*/
+               break; // Devuelve true para indicar que la opción ha sido manejada.
+            case R.id.menuFileFinish:
+                finish();
         }
 
         // Si el elemento del menú no coincide con ningún caso, llama al método de la superclase.
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        getMenuInflater().inflate(R.menu.menu_contextual, menu);
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuContextualEditCopy:
+                Toast.makeText(this, "Presiono Copiar", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onContextItemSelected(item);
+    }
 }
