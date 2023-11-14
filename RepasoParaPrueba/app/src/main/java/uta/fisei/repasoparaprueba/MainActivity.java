@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menuFileAbout:
                 Toast.makeText(this, "Esta es una app de prueba", Toast.LENGTH_SHORT).show();
                 break; // Devuelve true para indicar que la opción ha sido manejada.
+            case R.id.menuFileShowBrowser:
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+                startActivity(intent);
+                break;
             case R.id.menuFileFinish:
                 finish();
         }
