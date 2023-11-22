@@ -13,6 +13,12 @@
         android:theme="@style/Theme.App_005"
         tools:targetApi="31">
         <activity
+            android:name=".ShowAllActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectAllActivity"
+            android:exported="false" />
+        <activity
             android:name=".DataBaseActivity"
             android:exported="false" />
         <activity

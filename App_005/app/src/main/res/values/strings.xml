@@ -15,6 +15,7 @@
     <string name="button_search_text">Search</string>
     <string name="button_delete_text">Delete</string>
     <string name="button_modify_text">Modify</string>
+    <string name="button_select_all_text">Recuperar todos</string>
 
 
 </resources>

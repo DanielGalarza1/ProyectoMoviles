@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cannon Game</string>
+    <string name="results_format">Disparos Realizados: %1$d\nTiempo Total: %2$.1f</string>
+    <string name="reset_game">Reiniciar juego</string>
+    <string name="win">¡Ganaste!</string>
+    <string name="lose">Perdiste</string>
+    <string name="time_remaining_format">Tiempo restante: %.1f segundos</string>
+    <!-- TODO: Eliminar o cambiar este texto de marcador -->
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+</resources>

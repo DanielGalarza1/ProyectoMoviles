@@ -15,4 +15,6 @@
     <string name="button_search_text">Pesquisar</string>
     <string name="button_delete_text">Eliminar</string>
     <string name="button_modify_text">Modificar</string>
+    <string name="button_select_all_text">Recuperar todos</string>
+
 </resources>
