@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Kotlin_app_001</string>
+    <string name="edittext_numberone_hint">Ingrese un numero</string>
+    <string name="edittext_numbertwo_hint">Ingrese otro numero</string>
+    <string name="textview_result_text">Resultado</string>
+    <string name="button_add_text">Sumar</string>
+</resources>

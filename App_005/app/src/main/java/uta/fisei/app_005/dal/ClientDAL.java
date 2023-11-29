@@ -28,7 +28,7 @@ public class ClientDAL {
     }
 
     private void open(boolean openMode){
-        dataBaseManager = new DataBaseManager(context, "SEXTO_TI", null, 1);
+        dataBaseManager = new DataBaseManager(context, "SEXTO_DB", null, 1);
 
         if (openMode) {
             sqLiteDatabase = dataBaseManager.getWritableDatabase();
@@ -70,6 +70,7 @@ public class ClientDAL {
 
             Cursor cursor = sqLiteDatabase.rawQuery(SELECT , null);
 
+            client = new Client();
             if (cursor.moveToFirst()){
                 client.setName(cursor.getString(0));
                 client.setLastName(cursor.getString(1));

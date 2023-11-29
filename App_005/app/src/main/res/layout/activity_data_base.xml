@@ -81,7 +81,7 @@
         android:id="@+id/buttonInsert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickButtonInsert"
+        android:onClick="onClickButtonInsertWhitClass"
         android:text="@string/button_insert_text"
         tools:ignore="VisualLintButtonSize" />
 
@@ -89,7 +89,7 @@
         android:id="@+id/buttonSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickButtonSearch"
+        android:onClick="onClickButtonSearchWithClass"
         android:text="@string/button_search_text"
         tools:ignore="VisualLintButtonSize" />
 
