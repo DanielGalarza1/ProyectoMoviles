@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DetailFragment">
+
+    <GridLayout
+        android:id="@+id/detailGridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:useDefaultMargins="true"
+        android:padding="2dp">
+
+        <!-- Etiquetas en la columna izquierda -->
+
+        <!-- Etiqueta para el nombre -->
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_name"
+            android:textStyle="bold"
+            android:layout_row="0"
+            android:layout_column="0"
+            style="@style/ContactLabelTextView"/>
+
+        <TextView
+            android:id="@+id/phoneTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_phone"
+            android:textStyle="bold"
+            android:layout_row="2"
+            android:layout_column="0"
+            style="@style/ContactLabelTextView"/>
+
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_email"
+            android:textStyle="bold"
+            android:layout_row="4"
+            android:layout_column="0"
+            style="@style/ContactLabelTextView"/>
+
+        <TextView
+            android:id="@+id/streetTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_street"
+            android:textStyle="bold"
+            android:layout_row="6"
+            android:layout_column="0"
+            style="@style/ContactLabelTextView"/>
+
+        <TextView
+            android:id="@+id/cityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_city"
+            android:textStyle="bold"
+            android:layout_row="8"
+            android:layout_column="0"
+            style="@style/ContactLabelTextView"/>
+
+        <TextView
+            android:id="@+id/stateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_state"
+            android:textStyle="bold"
+            android:layout_row="10"
+            android:layout_column="0"
+            style="@style/ContactLabelTextView"/>
+
+        <TextView
+            android:id="@+id/zipTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_zip"
+            android:textStyle="bold"
+            android:layout_row="12"
+            android:layout_column="0"
+            style="@style/ContactLabelTextView"/>
+
+        <!-- Valores en la columna derecha -->
+
+        <!-- Valor para el nombre -->
+        <TextView
+            android:id="@+id/nameValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/ContactTextView"/>
+
+        <TextView
+            android:id="@+id/phoneValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/ContactTextView"/>
+
+        <TextView
+            android:id="@+id/emailValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/ContactTextView"/>
+
+        <TextView
+            android:id="@+id/streetValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="6"
+            android:layout_column="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/ContactTextView"/>
+
+        <TextView
+            android:id="@+id/cityValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="8"
+            android:layout_column="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/ContactTextView"/>
+
+        <TextView
+            android:id="@+id/stateValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="10"
+            android:layout_column="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/ContactTextView"/>
+
+        <TextView
+            android:id="@+id/zipValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="12"
+            android:layout_column="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/ContactTextView"/>
+        <!-- Agrega más TextViews para otros valores en la columna derecha -->
+
+    </GridLayout>
+</ScrollView>

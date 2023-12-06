@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -55,22 +56,33 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // obtener texto de locationEditText y crear URL del servicio web
+                // obtener texto de locationEditText
                 EditText locationEditText = (EditText) findViewById(R.id.locationEditText);
-                URL url = createURL(locationEditText.getText().toString());
+                String cityName = locationEditText.getText().toString().trim();
 
-                // ocultar el teclado y comenzar una GetWeatherTask para descargar
-                // datos meteorológicos de OpenWeatherMap.org en un hilo separado
-                if (url != null) {
-                    dismissKeyboard(locationEditText);
-                    GetWeatherTask getLocalWeatherTask = new GetWeatherTask();
-                    getLocalWeatherTask.execute(url);
+                // Verificar si el nombre de la ciudad está vacío
+                if (cityName.isEmpty()) {
+                    // Mostrar un mensaje indicando que se debe ingresar la ciudad usando Toast
+                    Toast.makeText(MainActivity.this, R.string.empy_city, Toast.LENGTH_LONG).show();
+                    // Limpiar la lista y notificar al adaptador
+                    weatherList.clear();
+                    weatherArrayAdapter.notifyDataSetChanged();
                 } else {
-                    Snackbar.make(findViewById(R.id.coordinatorLayout),
-                            R.string.invalid_url, Snackbar.LENGTH_LONG).show();
+                    // Crear URL del servicio web y comenzar la tarea
+                    URL url = createURL(cityName);
+                    if (url != null) {
+                        dismissKeyboard(locationEditText);
+                        GetWeatherTask getLocalWeatherTask = new GetWeatherTask();
+                        getLocalWeatherTask.execute(url);
+                    } else {
+                        // Mostrar mensaje de URL inválida usando Toast
+                        Toast.makeText(MainActivity.this, R.string.invalid_url, Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
+
+
     }
 
     private void dismissKeyboard(View view) {
@@ -139,36 +151,68 @@ public class MainActivity extends AppCompatActivity {
         // Procesa la respuesta JSON y actualiza el ListView
         @Override
         protected void onPostExecute(JSONObject weather) {
-            convertJSONtoArrayList(weather);
-            weatherArrayAdapter.notifyDataSetChanged(); // volver a enlazar con ListView
-            weatherListView.smoothScrollToPosition(0); // desplazar hacia arriba
+            if (weather != null) {
+                convertJSONtoArrayList(weather);
+                weatherArrayAdapter.notifyDataSetChanged(); // volver a enlazar con ListView
+                weatherListView.smoothScrollToPosition(0); // desplazar hacia arriba
+            } else {
+                // Limpiar la lista y notificar al adaptador
+                weatherList.clear();
+                weatherArrayAdapter.notifyDataSetChanged();
+            }
         }
     }
 
-    // create Weather objects from JSONObject containing the forecast
     private void convertJSONtoArrayList(JSONObject forecast) {
-        weatherList.clear(); // clear old weather data
-
+        weatherList.clear();
         try {
+            // Imprimir el contenido del objeto JSON antes de procesarlo
+            Log.d("ConvertJSON", "Contenido del objeto JSON: " + forecast.toString());
+
+            // Verificar si la clave "list" está presente en el objeto JSON
             if (forecast != null && forecast.has("list")) {
                 JSONArray list = forecast.getJSONArray("list");
+                for (int i = 0; i < list.length(); i++) {
+                    JSONObject day = list.getJSONObject(i);
 
-                // convert each element of list to a Weather object
-                for (int i = 0; i < list.length(); ++i) {
-                    JSONObject day = list.getJSONObject(i); // get one day's data
-                    JSONObject temperatures = day.getJSONObject("temp");
-                    JSONObject weather = day.getJSONArray("weather").getJSONObject(0);
-                    weatherList.add(new Weather(
-                            day.getLong("dt"), // date/time timestamp
-                            temperatures.getDouble("min"), // minimum temperature
-                            temperatures.getDouble("max"), // maximum temperature
-                            day.getDouble("humidity"), // percent humidity
-                            weather.getString("description"), // weather conditions
-                            weather.getString("icon"))); // icon name
+                    // Verificar si la clave "main" y "humidity" están presentes en el objeto "day"
+                    if (day.has("main") && day.getJSONObject("main").has("humidity")) {
+                        double humidity = day.getJSONObject("main").getDouble("humidity");
+
+                        // Verificar si la clave "weather" está presente en el objeto "day"
+                        if (day.has("weather") && day.getJSONArray("weather").length() > 0) {
+                            JSONObject weather = day.getJSONArray("weather").getJSONObject(0);
+
+                            // Obtener otros valores necesarios
+                            double minTemperature = day.getJSONObject("main").getDouble("temp_min");
+                            double maxTemperature = day.getJSONObject("main").getDouble("temp_max");
+
+                            weatherList.add(new Weather(
+                                    day.getLong("dt"), // date/time timestamp
+                                    minTemperature, // min temp
+                                    maxTemperature, // max temp
+                                    humidity, // percent humidity
+                                    weather.getString("description"), // weather conditions
+                                    weather.getString("icon") // icon name
+                            ));
+                        } else {
+                            // La clave "weather" no está presente en el objeto "day"
+                            // Puedes manejar este caso según tus necesidades.
+                            // Por ejemplo, imprimir un mensaje de error o tomar una acción predeterminada.
+                            Log.e("ConvertJSON", "No se encontró la clave 'weather' en el objeto JSON para el elemento " + i);
+                        }
+                    } else {
+                        // La clave "main" o "humidity" no está presente en el objeto "day"
+                        // Puedes manejar este caso según tus necesidades.
+                        // Por ejemplo, imprimir un mensaje de error o tomar una acción predeterminada.
+                        Log.e("ConvertJSON", "No se encontró la clave 'main' o 'humidity' en el objeto JSON para el elemento " + i);
+                    }
                 }
             } else {
-                // Handle the case where the forecast is null or doesn't contain the expected structure
-                // You might want to log a message or show a user-friendly error here.
+                // La clave "list" no está presente en el objeto JSON o el pronóstico es nulo
+                // Puedes manejar este caso según tus necesidades.
+                // Por ejemplo, imprimir un mensaje de error o tomar una acción predeterminada.
+                Log.e("ConvertJSON", "No se encontró la clave 'list' en el objeto JSON o el pronóstico es nulo");
             }
         } catch (JSONException e) {
             e.printStackTrace();

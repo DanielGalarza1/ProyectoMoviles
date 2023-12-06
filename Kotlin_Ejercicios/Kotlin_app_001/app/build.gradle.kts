@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.internal.kapt.incremental.UnknownSnapshot
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")

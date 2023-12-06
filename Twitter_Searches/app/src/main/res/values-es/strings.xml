@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Búsquedas en Twitter</string>
+    <string name="query_prompt">Ingresa la consulta de búsqueda en Twitter aquí</string>
+    <string name="tag_prompt">Etiqueta tu consulta</string>
+    <string name="save_description">Toca este botón para guardar tu búsqueda etiquetada</string>
+    <string name="tagged_searches">Búsquedas Etiquetadas</string>
+    <string name="search_URL">https://mobile.twitter.com/search?q=</string>
+    <string name="share_edit_delete_title">Compartir, Editar o Eliminar la búsqueda etiquetada \"%s\"</string>
+    <string name="cancel">Cancelar</string>
+    <string name="share_subject">Búsqueda en Twitter que podría interesarte</string>
+    <string name="share_message">Echa un vistazo a los resultados de esta búsqueda en Twitter: %s</string>
+    <string name="share_search">Compartir búsqueda en:</string>
+    <string name="confirm_message">¿Estás seguro de que deseas eliminar la búsqueda \"%s\"?</string>
+    <string name="delete">Eliminar</string>
+    <string name="replace_search_confirmation">Ya hay un registro con ese nombre, ¿quieres reemplazarlo?</string>
+    <string name="replace">Aceptar</string>
+
+</resources>

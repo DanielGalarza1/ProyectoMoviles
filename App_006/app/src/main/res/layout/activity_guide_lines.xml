@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/guideLineTop"
+        app:layout_constraintBottom_toBottomOf="@+id/guideLineTop"
         app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
         app:layout_constraintStart_toStartOf="@+id/guideLineStart"
         app:layout_constraintTop_toTopOf="@+id/guideLineBottom" />

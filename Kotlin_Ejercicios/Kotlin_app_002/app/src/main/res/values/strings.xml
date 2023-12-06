@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Kotlin_app_002</string>
+    <string name="edittext_username_hint">Ingrese el usuario</string>
+    <string name="edittext_password_hint">Ingrese la clave</string>
+    <string name="button_ok_text">Aceptar</string>
+
+    <!-- activity_second -->
+    <string name="edittext_message_hint">Mensaje</string>
+    <string name="button_show_text">Mostrar</string>
+    <string name="button_finish_text">Cerrar</string>
+</resources>

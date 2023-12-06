@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Agenda de Contactos</string>
+    <!-- Menú -->
+    <string name="menuitem_edit">Editar</string>
+    <string name="menuitem_delete">Eliminar</string>
+
+    <!-- Hint para campos de formulario -->
+    <string name="hint_name_required">Nombre (Requerido)</string>
+    <string name="hint_email">Correo Electrónico</string>
+    <string name="hint_phone">Teléfono</string>
+    <string name="hint_street">Calle</string>
+    <string name="hint_city">Ciudad</string>
+    <string name="hint_state">Estado</string>
+    <string name="hint_zip">Código Postal</string>
+
+    <!-- Etiquetas para campos de formulario -->
+    <string name="label_name">Nombre:</string>
+    <string name="label_email">Email:</string>
+    <string name="label_phone">Teléfono:</string>
+    <string name="label_street">Calle:</string>
+    <string name="label_city">Ciudad:</string>
+    <string name="label_state">Estado:</string>
+    <string name="label_zip">Cód Postal:</string>
+
+    <!-- Confirmación -->
+    <string name="confirm_title">¿Está Seguro?</string>
+    <string name="confirm_message">Esto eliminará permanentemente el contacto</string>
+
+    <!-- Botones -->
+    <string name="button_cancel">Cancelar</string>
+    <string name="button_delete">Eliminar</string>
+
+    <!-- Mensajes de éxito y error -->
+    <string name="contact_added">Contacto agregado exitosamente</string>
+    <string name="contact_not_added">No se pudo agregar el contacto debido a un error</string>
+    <string name="contact_updated">Contacto actualizado</string>
+    <string name="contact_not_updated">No se pudo actualizar el contacto debido a un error</string>
+
+    <!-- Mensajes de error específicos -->
+    <string name="invalid_query_uri">URI de consulta no válida:</string>
+    <string name="invalid_insert_uri">URI de inserción no válida:</string>
+    <string name="invalid_update_uri">URI de actualización no válida:</string>
+    <string name="invalid_delete_uri">URI de eliminación no válida:</string>
+    <string name="insert_failed">Inserción falló: %s</string>
+</resources>

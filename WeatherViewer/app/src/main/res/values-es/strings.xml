@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pronóstico del Clima</string>
+    <string name="api_key">bcb4971ab5399e2bdc1978809e4f9dea</string>
+    <string name="web_service_url">https://api.openweathermap.org/data/2.5/forecast?q=</string>
+    <string name="web_service2_url">https://api.openweathermap.org/geo/1.0/direct?q=</string>
+    <string name="invalid_url">URL inválida</string>
+    <string name="weather_condition_image">Una representación gráfica de las condiciones climáticas</string>
+    <string name="high_temp">Máxima: %s</string>
+    <string name="low_temp">Mínima: %s</string>
+    <string name="day_description">%1$s: %2$s</string>
+    <string name="humidity">Humedad: %s</string>
+    <string name="hint_text">Introduce la ciudad (p. ej. Boston, MA, US)</string>
+    <string name="read_error">No se puede leer los datos del tiempo</string>
+    <string name="connect_error">No se puede conectar a OpenWeatherMap.org</string>
+    <string name="empy_city">Ingrese la ciudad</string>
+</resources>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">App_005</string>
+    <string name="textview_tittle_text">System Login</string>
+    <string name="edittextview_user_hint">Enter your user</string>
+    <string name="edittextview_password_hint">Enter your password</string>
+    <string name="button_ok_text">Accept</string>
+
+    <string name="textview_tittleclients_text">Maintenance: Customers</string>
+    <string name="edittextview_code_hint">Enter the code</string>
+    <string name="edittextview_name_hint">Enter the name</string>
+    <string name="edittextview_lastname_hint">Enter the lastname</string>
+    <string name="edittextview_phone_hint">Enter the phone</string>
+    <string name="edittextview_balance_hint">Enter the balance</string>
+    <string name="button_insert_text">Insert</string>
+    <string name="button_search_text">Search</string>
+    <string name="button_delete_text">Delete</string>
+    <string name="button_modify_text">Modify</string>
+    <string name="button_select_all_text">Recuperar todos</string>
+
+
+</resources>

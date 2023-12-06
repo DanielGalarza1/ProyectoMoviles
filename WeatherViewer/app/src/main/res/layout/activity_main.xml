@@ -26,11 +26,6 @@
     <!-- Incluye el contenido de content_main.xml -->
     <include layout="@layout/activity_content_main" />
     <!-- Content FrameLayout -->
-    <FrameLayout
-        android:id="@+id/contentFrame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -42,9 +37,12 @@
             android:layout_marginBottom="@dimen/fab_margin"
             android:layout_marginStart="@dimen/fab_margin"
             android:contentDescription="TODO"
+            app:backgroundTint="@color/colorAccent"
+            app:shapeAppearanceOverlay="@style/RoundedFab"
+            app:tint="@color/white"
             app:srcCompat="@drawable/ic_done_24"
             tools:ignore="MissingConstraints" />
-    </FrameLayout>
+
 
 
 
