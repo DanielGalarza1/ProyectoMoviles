@@ -38,7 +38,7 @@ public class MainActivityFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
 
         // Inflar el diseño del fragmento
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main_mdgm, container, false);
 
         // Establecer si el fragmento debe tener opciones de menú
         setHasOptionsMenu(true);
@@ -140,7 +140,7 @@ public class MainActivityFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.color:
                 // Crear e mostrar un diálogo para seleccionar color
-                ColorDialogFragment colorDialog = new ColorDialogFragment();
+                ColorDialogFragment_mdgm colorDialog = new ColorDialogFragment_mdgm();
                 colorDialog.show(getFragmentManager(), "color dialog");
                 return true; // Consume el evento del menú
 

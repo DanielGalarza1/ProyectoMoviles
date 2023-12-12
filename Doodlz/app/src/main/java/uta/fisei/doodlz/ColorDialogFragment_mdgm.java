@@ -6,14 +6,12 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.SeekBar;
 
 import androidx.fragment.app.DialogFragment;
 
-public class ColorDialogFragment extends DialogFragment {
+public class ColorDialogFragment_mdgm extends DialogFragment {
     private SeekBar alphaSeekBar;
     private SeekBar redSeekBar;
     private SeekBar greenSeekBar;
@@ -24,7 +22,7 @@ public class ColorDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle bundle) {
         // crea el diálogo
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        View colorDialogView = getActivity().getLayoutInflater().inflate(R.layout.fragment_color, null);
+        View colorDialogView = getActivity().getLayoutInflater().inflate(R.layout.fragment_color_mdgm, null);
         builder.setView(colorDialogView);
 
         // establece el mensaje del AlertDialog

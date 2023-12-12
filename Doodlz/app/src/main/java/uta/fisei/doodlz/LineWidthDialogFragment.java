@@ -25,7 +25,7 @@ public class LineWidthDialogFragment extends DialogFragment {
         // Crea el diálogo
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View lineWidthDialogView = getActivity().getLayoutInflater().inflate(
-                R.layout.fragment_line_width, null);
+                R.layout.fragment_line_width_mdgm, null);
         builder.setView(lineWidthDialogView); // Agrega la interfaz gráfica al diálogo
 
         // Establece el mensaje del AlertDialog
