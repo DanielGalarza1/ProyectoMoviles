@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Beinvenido a Jetpack Compose 1.0",
+        text = "Bienvenido a Jetpack Compose 1.0",
         modifier = modifier
     )
 }
